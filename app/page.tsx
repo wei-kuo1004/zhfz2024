@@ -11,13 +11,13 @@ export default function IndexPage() {
           災害防治首頁 <br className="hidden sm:inline" />
           Home
         </h1>
-        <p className="text-muted-foreground max-w-[700px] text-lg">
+        <p className="max-w-[700px] text-lg text-muted-foreground">
           用gh-page將github Page Run起來
         </p>
       </div>
       <div className="flex gap-4">
         <Link
-          href={siteConfig.links.docs}
+          href="/SecondPage"
           target="_blank"
           rel="noreferrer"
           className={buttonVariants()}
