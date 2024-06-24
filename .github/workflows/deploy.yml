@@ -75,8 +75,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         env:
-          NEXT_PUBLIC_BASE_PATH: "/project1"
-          NEXT_PUBLIC_ASSET_PREFIX: "/project1"
+          NEXT_PUBLIC_BASE_PATH: "/zhfz2024"
+          NEXT_PUBLIC_ASSET_PREFIX: "/zhfz2024"
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
