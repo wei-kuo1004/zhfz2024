@@ -17,7 +17,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'safeFirst': "url('/images/safeFirst.webp')",
+        'p1-bg': "url('/images/PRD/p1-bg.jpg')",
+        'p2-bg': "url('/images/PRD/p2-bg.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",
