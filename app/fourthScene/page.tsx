@@ -1,14 +1,22 @@
+import { buttonVariants } from '@/components/ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 
-interface PageProps {
-  params: { id: string };
-}
 
 // 假設這是一個頁面組件
-const FourthPage: React.FC<PageProps> = ({ params }) => {
+const FourthPage = () => {
   return (
     <div>
-      <h1>Page {params.id}</h1>
+      <h1>完成測驗</h1>
+      <div className="flex gap-4">
+        <Link
+          href="/"
+          className={buttonVariants()}
+        >
+         回首頁
+        </Link>
+      </div>
     </div>
   );
 };

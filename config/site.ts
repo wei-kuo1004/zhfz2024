@@ -1,17 +1,25 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Project1",
+  name: "zhfz2024",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "OOXX測試版",
   mainNav: [
     {
       title: "Home",
       href: "/",
     },
+    {
+      title: "Second Page",
+      href: "/secondScene",
+    },
+    {
+      title: "third Page",
+      href: "/thirdScene",
+    },
+    {
+      title: "fourth Page",
+      href: "/fourthScene",
+    },
   ],
-  links: {
-    github: "https://github.com/CinemaCafe/next-template",
-    docs: "https://ui.shadcn.com",
-  },
 }

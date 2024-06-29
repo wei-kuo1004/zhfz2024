@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'safeFirst': "url('/images/safeFirst.webp')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
