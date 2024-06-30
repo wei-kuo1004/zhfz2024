@@ -31,7 +31,7 @@ export default function IndexPage() {
     <>
     <Head>
       {/* 預加載背景圖片 */}
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.jpg" as="image" />
+      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png" as="image" />
     </Head>
       <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg  bg-cover p-6">

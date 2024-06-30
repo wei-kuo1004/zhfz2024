@@ -11,7 +11,7 @@ export default function SecondPage() {
   return (
     <>
     <Head>
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-bg.jpg" as="image" />
+      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-bg.png" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character1.png" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character2.png" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character3.png" as="image" /> 
