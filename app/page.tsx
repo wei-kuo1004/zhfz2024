@@ -4,6 +4,7 @@ import Image from "next/image";
 import Head from "next/head";
 import ClickCounter from "@/components/clickCount";
 import { useEffect, useState } from "react";
+import LoadingDots from "@/components/loadingDot";
 
 export default function IndexPage() {
   const [clickCount, setClickCount] = useState(0);
@@ -43,7 +44,7 @@ export default function IndexPage() {
   };
 
   if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+    return <LoadingDots/>;
   }
 
   return (

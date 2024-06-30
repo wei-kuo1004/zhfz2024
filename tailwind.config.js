@@ -73,11 +73,16 @@ module.exports = {
           '0%': { backgroundPosition: '-100%' },
           '100%': { backgroundPosition: '200%' },
         },
+        "bounce": {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "shine": 'shine 1s forwards',
+        "bounce": 'bounce 1s infinite',
       },
     },
   },
