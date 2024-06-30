@@ -1,60 +1,86 @@
-"use client"
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-import Head from 'next/head';
+import Head from "next/head";
 import ClickCounter from "@/components/clickCount";
 import { useEffect, useState } from "react";
 
-
 export default function IndexPage() {
   const [clickCount, setClickCount] = useState(0);
-  
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     // 從 localStorage 獲取初始值
-    const savedCount = localStorage.getItem('clickCount');
+    const savedCount = localStorage.getItem("clickCount");
     if (savedCount) {
       setClickCount(parseInt(savedCount, 10));
     }
+
+    // 等待所有圖片加載完成
+    const images = [
+      "https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png",
+      "https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png",
+    ];
+
+    Promise.all(images.map(loadImage)).then(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
     // 每次 clickCount 改變時更新 localStorage
-    localStorage.setItem('clickCount', clickCount.toString());
+    localStorage.setItem("clickCount", clickCount.toString());
   }, [clickCount]);
 
-  const handleStartClick = () => {
-    setClickCount(prevCount => prevCount + 1);
+  const loadImage = (src: string) => {
+    return new Promise<void>((resolve) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => resolve();
+    });
   };
 
-  return (
+  const handleStartClick = () => {
+    setClickCount((prevCount) => prevCount + 1);
+  };
 
+  if (isLoading) {
+    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+  }
+
+  return (
     <>
-    <Head>
-      {/* 預加載背景圖片 */}
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png" as="image" />
-    </Head>
-      <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg  bg-cover p-6">
-        <div className=" w-full flex-1 p-8">
+      <Head>
+        {/* 預加載背景圖片 */}
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png"
+          as="image"
+        />
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
+          as="image"
+        />
+      </Head>
+      <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg bg-cover p-6">
+        <div className="w-full flex-1 p-8">
           {/* 你的內容 */}
         </div>
-        <div className=" w-full flex-1 p-8">
+        <div className="w-full flex-1 p-8">
           {/* 你的內容 */}
-        </div> 
-
-        <div className=" w-full flex-1 p-8">
-          <Link href="/secondScene" passHref onClick={handleStartClick}>    
+        </div>
+        <div className="w-full flex-1 p-8">
+          <Link href="/secondScene" passHref onClick={handleStartClick}>
             <Image
               src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
               alt="描述文字"
               width={800}
               height={600}
-              style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+              style={{ objectFit: "cover", width: "100%", height: "auto" }}
             />
-          </Link> 
+          </Link>
         </div>
-          {/* 顯示本日日期及遊玩人次 */}
-          <ClickCounter clickCount={clickCount} />
+        {/* 顯示本日日期及遊玩人次 */}
+        <ClickCounter clickCount={clickCount} />
       </div>
     </>
   );
