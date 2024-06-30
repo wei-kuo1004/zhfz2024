@@ -149,7 +149,7 @@ export default function ThirdPage() {
             alt="答題反饋" 
             width={300} 
             height={300} 
-            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </motion.div>
       )}
@@ -161,12 +161,14 @@ export default function ThirdPage() {
             onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
           >
             <div className="relative aspect-[10/2.5] w-full">
-              <Image 
-                src={option.src} 
-                alt={`選項 ${String.fromCharCode(65 + index)}`} 
-                style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
-                className={`transition-transform duration-200 hover:scale-105 ${showFeedback ? 'opacity-50' : ''}`}
-              />
+            <Image 
+              src={option.src} 
+              alt={`選項 ${String.fromCharCode(65 + index)}`} 
+              fill
+              style={{ objectFit: 'cover' }}
+              className={`transition-transform duration-200 hover:scale-105 ${showFeedback ? 'opacity-50' : ''}`}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
             </div>
           </div>
         ))}
