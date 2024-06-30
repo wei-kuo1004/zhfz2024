@@ -2,9 +2,30 @@
 import Link from "next/link";
 import Image from "next/image";
 import Head from 'next/head';
+import ClickCounter from "@/components/clickCount";
+import { useEffect, useState } from "react";
 
 
 export default function IndexPage() {
+  const [clickCount, setClickCount] = useState(0);
+  
+  useEffect(() => {
+    // 從 localStorage 獲取初始值
+    const savedCount = localStorage.getItem('clickCount');
+    if (savedCount) {
+      setClickCount(parseInt(savedCount, 10));
+    }
+  }, []);
+
+  useEffect(() => {
+    // 每次 clickCount 改變時更新 localStorage
+    localStorage.setItem('clickCount', clickCount.toString());
+  }, [clickCount]);
+
+  const handleStartClick = () => {
+    setClickCount(prevCount => prevCount + 1);
+  };
+
   return (
 
     <>
@@ -51,7 +72,7 @@ export default function IndexPage() {
         </div> 
 
         <div className=" w-full flex-1 p-8">
-          <Link href="/secondScene" passHref>    
+          <Link href="/secondScene" passHref onClick={handleStartClick}>    
             <Image
               src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
               alt="描述文字"
@@ -61,6 +82,8 @@ export default function IndexPage() {
             />
           </Link> 
         </div>
+          {/* 顯示本日日期及遊玩人次 */}
+          <ClickCounter clickCount={clickCount} />
       </div>
     </>
   );
