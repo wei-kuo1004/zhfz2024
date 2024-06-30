@@ -31,6 +31,7 @@ export default function ThirdPage() {
   }, [selectedCharacter, currentLevel]);
 
   const images = {
+    //沖床 答案BCA
     character1: {
       bg: [
         "/images/PRD/C1/C1-Q1-bg.jpg",
@@ -38,22 +39,23 @@ export default function ThirdPage() {
         "/images/PRD/C1/C1-Q3-bg.jpg",
       ],
       options: [
-        { src: "/images/PRD/C1/C1-Q1-A.png", correct: true },
-        { src: "/images/PRD/C1/C1-Q2-A.png", correct: false },
-        { src: "/images/PRD/C1/C1-Q3-A.png", correct: false },
-        { src: "/images/PRD/C1/C1-Q1-B.png", correct: false },
-        { src: "/images/PRD/C1/C1-Q2-B.png", correct: true },
-        { src: "/images/PRD/C1/C1-Q3-B.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q1-A.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q1-B.png", correct: true },
         { src: "/images/PRD/C1/C1-Q1-C.png", correct: false },
-        { src: "/images/PRD/C1/C1-Q2-C.png", correct: false },
-        { src: "/images/PRD/C1/C1-Q3-C.png", correct: true },
         { src: "/images/PRD/C1/C1-Q1-D.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q2-A.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q2-B.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q2-C.png", correct: true },
         { src: "/images/PRD/C1/C1-Q2-D.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q3-A.png", correct: true },
+        { src: "/images/PRD/C1/C1-Q3-B.png", correct: false },
+        { src: "/images/PRD/C1/C1-Q3-C.png", correct: false },
         { src: "/images/PRD/C1/C1-Q3-D.png", correct: false },
       ],
       correctImage: "/images/PRD/C1/C1-o.jpg",
       wrongImage: "/images/PRD/C1/C1-x.jpg",
     },
+    //汽車維修 答案CBC
     character2: {
       bg: [
         "/images/PRD/C2/C2-Q1-bg.jpg",
@@ -61,22 +63,23 @@ export default function ThirdPage() {
         "/images/PRD/C2/C2-Q3-bg.jpg",
       ],
       options: [
-        { src: "/images/PRD/C2/C2-Q1-A.png", correct: true },
-        { src: "/images/PRD/C2/C2-Q2-A.png", correct: false },
-        { src: "/images/PRD/C2/C2-Q3-A.png", correct: false },
+        { src: "/images/PRD/C2/C2-Q1-A.png", correct: false },
         { src: "/images/PRD/C2/C2-Q1-B.png", correct: false },
-        { src: "/images/PRD/C2/C2-Q2-B.png", correct: true },
-        { src: "/images/PRD/C2/C2-Q3-B.png", correct: false },
-        { src: "/images/PRD/C2/C2-Q1-C.png", correct: false },
-        { src: "/images/PRD/C2/C2-Q2-C.png", correct: false },
-        { src: "/images/PRD/C2/C2-Q3-C.png", correct: true },
+        { src: "/images/PRD/C2/C2-Q1-C.png", correct: true },
         { src: "/images/PRD/C2/C2-Q1-D.png", correct: false },
+        { src: "/images/PRD/C2/C2-Q2-A.png", correct: false },
+        { src: "/images/PRD/C2/C2-Q2-B.png", correct: true },
+        { src: "/images/PRD/C2/C2-Q2-C.png", correct: false },
         { src: "/images/PRD/C2/C2-Q2-D.png", correct: false },
+        { src: "/images/PRD/C2/C2-Q3-A.png", correct: false },
+        { src: "/images/PRD/C2/C2-Q3-B.png", correct: false },
+        { src: "/images/PRD/C2/C2-Q3-C.png", correct: true },
         { src: "/images/PRD/C2/C2-Q3-D.png", correct: false },
       ],
       correctImage: "/images/PRD/C2/C2-o.jpg",
       wrongImage: "/images/PRD/C2/C2-x.jpg",
     },
+    //鑄造 答案BBB
     character3: {
       bg: [
         "/images/PRD/C3/C3-Q1-bg.jpg",
@@ -84,17 +87,17 @@ export default function ThirdPage() {
         "/images/PRD/C3/C3-Q3-bg.jpg",
       ],
       options: [
-        { src: "/images/PRD/C3/C3-Q1-A.png", correct: true },
-        { src: "/images/PRD/C3/C3-Q2-A.png", correct: false },
-        { src: "/images/PRD/C3/C3-Q3-A.png", correct: false },
-        { src: "/images/PRD/C3/C3-Q1-B.png", correct: false },
-        { src: "/images/PRD/C3/C3-Q2-B.png", correct: true },
-        { src: "/images/PRD/C3/C3-Q3-B.png", correct: false },
+        { src: "/images/PRD/C3/C3-Q1-A.png", correct: false },
+        { src: "/images/PRD/C3/C3-Q1-B.png", correct: true },
         { src: "/images/PRD/C3/C3-Q1-C.png", correct: false },
-        { src: "/images/PRD/C3/C3-Q2-C.png", correct: false },
-        { src: "/images/PRD/C3/C3-Q3-C.png", correct: true },
         { src: "/images/PRD/C3/C3-Q1-D.png", correct: false },
+        { src: "/images/PRD/C3/C3-Q2-A.png", correct: false },
+        { src: "/images/PRD/C3/C3-Q2-B.png", correct: true },
+        { src: "/images/PRD/C3/C3-Q2-C.png", correct: false },
         { src: "/images/PRD/C3/C3-Q2-D.png", correct: false },
+        { src: "/images/PRD/C3/C3-Q3-A.png", correct: false },
+        { src: "/images/PRD/C3/C3-Q3-B.png", correct: true },
+        { src: "/images/PRD/C3/C3-Q3-C.png", correct: false },
         { src: "/images/PRD/C3/C3-Q3-D.png", correct: false },
       ],
       correctImage: "/images/PRD/C3/C3-o.jpg",
@@ -144,16 +147,20 @@ export default function ThirdPage() {
           />
         </div>
       )}
-      <div className={`flex flex-col mb-8 w-full max-w-2xl space-y-1 ${showFeedback ? 'pointer-events-none' : ''}`}>
+      <div className={`flex flex-col mb-8 w-full max-w-2xl space-y-1`}>
         {data.options.map((option, index) => (
-          <div key={index} className="cursor-pointer w-full flex justify-center" onClick={() => handleClick(String.fromCharCode(65 + index), option.correct)}>
+          <div 
+            key={index} 
+            className="cursor-pointer w-full flex justify-center" 
+            onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
+          >
             <div className="relative w-full aspect-[10/2.5]">
               <Image 
                 src={option.src} 
                 alt={`選項 ${String.fromCharCode(65 + index)}`} 
                 layout="fill"
                 objectFit="cover"
-                className="hover:scale-105 transition-transform duration-200"
+                className={`hover:scale-105 transition-transform duration-200 ${showFeedback ? 'opacity-50' : ''}`}
               />
             </div>
           </div>
