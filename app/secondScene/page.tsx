@@ -39,10 +39,10 @@ export default function SecondPage() {
             </Link>
           </div>
           <div className="mx-2 w-1/2 flex-1">
-            <Link href="https://wei-kuo1004.github.io/zhfz2024/thirdScene" passHref>
+            <Link href="/thirdScene" passHref>
               <div onClick={() => setSelectedCharacter('character3')}>
                 <Image
-                  src="/images/PRD/p2-character3.png"
+                  src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character3.png"
                   alt="焊接鑄造工程師"
                   width={400}
                   height={400}
