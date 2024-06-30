@@ -5,7 +5,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
-import Link from 'next/link';
+import LoadingDots from '@/components/loadingDot';
+
+
 
 export default function ThirdPage() {
   const { selectedCharacter, currentLevel, setCurrentLevel, setAnswer } = useCharacter();
@@ -18,6 +20,7 @@ export default function ThirdPage() {
     correctImage: string,
     wrongImage: string,
   } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (currentLevel > 3) {
@@ -33,8 +36,26 @@ export default function ThirdPage() {
     }
   }, [selectedCharacter, currentLevel]);
 
+  useEffect(() => {
+    if (data) {
+      const imagesToPreload = [
+        data.bg,
+        ...data.options.map(option => option.src),
+        data.correctImage,
+        data.wrongImage
+      ];
+
+      Promise.all(imagesToPreload.map(src => {
+        return new Promise((resolve) => {
+          const img = new window.Image();
+          img.src = src;
+          img.onload = resolve;
+        });
+      })).then(() => setIsLoading(false));
+    }
+  }, [data]);
+
   const images = {
-    // 沖床 答案BCA
     character1: {
       bg: [
         "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-bg.webp",
@@ -58,7 +79,6 @@ export default function ThirdPage() {
       correctImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-o.webp",
       wrongImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-x.webp",
     },
-    // 汽車維修 答案CBC
     character2: {
       bg: [
         "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-bg.webp",
@@ -82,7 +102,6 @@ export default function ThirdPage() {
       correctImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-o.webp",
       wrongImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-x.webp",
     },
-    // 鑄造 答案BBB
     character3: {
       bg: [
         "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-bg.webp",
@@ -135,66 +154,45 @@ export default function ThirdPage() {
     }, 2000);
   };
 
-  if (!data) return <div>沒有選擇角色</div>;
+  if (isLoading || !data) return <LoadingDots />;
 
   return (
-    <>
-    <Head>
-      {/* 第三頁 */}
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-bg.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-o.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-x.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-o.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-x.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-o.webp" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-x.webp" as="image" />
-    </Head>
-    <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
-      {showFeedback && (
+      <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
+        {showFeedback && (
           <motion.div 
-          className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 500 }}
-        >
-          <Image 
-            src={feedbackImage} 
-            alt="答題反饋" 
-            width={300} 
-            height={300} 
-            style={{ width: 'auto', height: 'auto' }}
-          />
-        </motion.div>
-      )}
-      <div className={`mb-8 flex w-full max-w-2xl flex-col space-y-1`}>
-        {data.options.map((option, index) => (
-          <div 
-            key={index} 
-            className="flex w-full cursor-pointer justify-center" 
-            onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
+            className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 500 }}
           >
-         <div className="relative aspect-[10/2.5] w-full">
-          <Image 
-            src={option.src} 
-            alt={`選項 ${String.fromCharCode(65 + index)}`} 
-            fill
-            style={{ objectFit: 'cover' }}
-            className={``}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
+            <Image 
+              src={feedbackImage} 
+              alt="答題反饋" 
+              width={300} 
+              height={300} 
+              style={{ width: 'auto', height: 'auto' }}
+            />
+          </motion.div>
+        )}
+        <div className={`mb-8 flex w-full max-w-2xl flex-col space-y-1`}>
+          {data.options.map((option, index) => (
+            <div 
+              key={index} 
+              className="flex w-full cursor-pointer justify-center" 
+              onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
+            >
+              <div className="relative aspect-[10/2.5] w-full">
+                <Image 
+                  src={option.src} 
+                  alt={`選項 ${String.fromCharCode(65 + index)}`} 
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+            </div>
+          ))}
         </div>
-          </div>
-        ))}
       </div>
-    </div>
-    </>
   );
 }
