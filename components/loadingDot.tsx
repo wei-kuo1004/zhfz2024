@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoadingDots = () => {
+const LoadingDots: React.FC = () => {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="flex space-x-2">
