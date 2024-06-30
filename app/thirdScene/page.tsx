@@ -3,6 +3,7 @@ import { useCharacter } from '@/store/character-store';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 export default function ThirdPage() {
   const { selectedCharacter, currentLevel, setCurrentLevel, setAnswer } = useCharacter();
@@ -135,9 +136,14 @@ export default function ThirdPage() {
   if (!data) return <div>沒有選擇角色</div>;
 
   return (
-    <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2 relative" style={{ backgroundImage: `url(${data.bg})` }}>
+    <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
       {showFeedback && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <motion.div 
+          className="absolute inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 500 }}
+        >
           <Image 
             src={feedbackImage} 
             alt="答題反饋" 
@@ -145,22 +151,22 @@ export default function ThirdPage() {
             width={300} 
             height={300} 
           />
-        </div>
+        </motion.div>
       )}
-      <div className={`flex flex-col mb-8 w-full max-w-2xl space-y-1`}>
+      <div className={`mb-8 flex w-full max-w-2xl flex-col space-y-1`}>
         {data.options.map((option, index) => (
           <div 
             key={index} 
-            className="cursor-pointer w-full flex justify-center" 
+            className="flex w-full cursor-pointer justify-center" 
             onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
           >
-            <div className="relative w-full aspect-[10/2.5]">
+            <div className="relative aspect-[10/2.5] w-full">
               <Image 
                 src={option.src} 
                 alt={`選項 ${String.fromCharCode(65 + index)}`} 
                 layout="fill"
                 objectFit="cover"
-                className={`hover:scale-105 transition-transform duration-200 ${showFeedback ? 'opacity-50' : ''}`}
+                className={`transition-transform duration-200 hover:scale-105 ${showFeedback ? 'opacity-50' : ''}`}
               />
             </div>
           </div>
