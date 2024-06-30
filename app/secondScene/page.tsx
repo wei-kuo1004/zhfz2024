@@ -3,10 +3,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useCharacter } from '@/store/character-store';
 
+import Head from 'next/head';
+
 export default function SecondPage() {
   const { setSelectedCharacter } = useCharacter();
 
   return (
+    <>
+    <Head>
+      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-bg.jpg" as="image" />
+      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character1.png" as="image" />
+      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character2.png" as="image" />
+      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character3.png" as="image" /> 
+    </Head>
     <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p2-bg bg-cover p-6">
       <div className="w-1/2">
         <Link href="/thirdScene" passHref>
@@ -52,5 +61,6 @@ export default function SecondPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -33,29 +33,7 @@ export default function IndexPage() {
       {/* 預加載背景圖片 */}
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.jpg" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png" as="image" />
-
-      {/* 第二頁 */}
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character1.png" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character2.png" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character3.png" as="image" />
-      
-      {/* 第三頁 */}
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-o.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-x.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-o.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-x.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-o.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-x.jpg" as="image" />
+    
       {/* 第四頁 */}
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-F-bg.jpg" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-F-bg.jpg" as="image" />
