@@ -16,7 +16,7 @@ export default function IndexPage() {
       <div className=" w-full flex-1 p-8">
         <Link href="/secondScene" passHref>    
           <Image
-            src="/images/PRD/p1-start.png"
+            src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
             alt="描述文字"
             width={800}
             height={600}

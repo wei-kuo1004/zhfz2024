@@ -12,7 +12,7 @@ export default function SecondPage() {
         <Link href="/thirdScene" passHref>
           <div onClick={() => setSelectedCharacter('character1')}>
             <Image
-              src="/images/PRD/p2-character1.png"
+              src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character1.png"
               alt="沖床工程師"
               width={400}
               height={400}
@@ -28,7 +28,7 @@ export default function SecondPage() {
             <Link href="/thirdScene" passHref>
               <div onClick={() => setSelectedCharacter('character2')}>
                 <Image
-                  src="/images/PRD/p2-character2.png"
+                  src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character2.png"
                   alt="汽車維修工程師"
                   width={400}
                   height={400}
@@ -39,7 +39,7 @@ export default function SecondPage() {
             </Link>
           </div>
           <div className="mx-2 w-1/2 flex-1">
-            <Link href="/thirdScene" passHref>
+            <Link href="https://wei-kuo1004.github.io/zhfz2024/thirdScene" passHref>
               <div onClick={() => setSelectedCharacter('character3')}>
                 <Image
                   src="/images/PRD/p2-character3.png"
