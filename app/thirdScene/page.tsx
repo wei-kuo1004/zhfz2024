@@ -139,7 +139,7 @@ export default function ThirdPage() {
     <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
       {showFeedback && (
           <motion.div 
-          className="absolute inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
           initial={{ scale: 0.8 }}
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 500 }}
