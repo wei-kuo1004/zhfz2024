@@ -147,9 +147,9 @@ export default function ThirdPage() {
           <Image 
             src={feedbackImage} 
             alt="答題反饋" 
-            layout="intrinsic" 
             width={300} 
             height={300} 
+            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
           />
         </motion.div>
       )}
@@ -164,8 +164,7 @@ export default function ThirdPage() {
               <Image 
                 src={option.src} 
                 alt={`選項 ${String.fromCharCode(65 + index)}`} 
-                layout="fill"
-                objectFit="cover"
+                style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                 className={`transition-transform duration-200 hover:scale-105 ${showFeedback ? 'opacity-50' : ''}`}
               />
             </div>
