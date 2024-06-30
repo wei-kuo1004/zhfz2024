@@ -33,18 +33,11 @@ export default function IndexPage() {
       {/* 預加載背景圖片 */}
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.jpg" as="image" />
       <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png" as="image" />
-    
-      {/* 第四頁 */}
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-F-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-F-bg.jpg" as="image" />
-      <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-F-bg.jpg" as="image" />
     </Head>
-
       <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg  bg-cover p-6">
         <div className=" w-full flex-1 p-8">
           {/* 你的內容 */}
         </div>
-
         <div className=" w-full flex-1 p-8">
           {/* 你的內容 */}
         </div> 
