@@ -16,8 +16,7 @@ export default function SecondPage() {
               alt="沖床工程師"
               width={400}
               height={400}
-              layout="responsive"
-              objectFit="cover"
+              style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
             />
           </div>
         </Link>
@@ -32,8 +31,7 @@ export default function SecondPage() {
                   alt="汽車維修工程師"
                   width={400}
                   height={400}
-                  layout="responsive"
-                  objectFit="cover"
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                 />
               </div>
             </Link>
@@ -46,8 +44,7 @@ export default function SecondPage() {
                   alt="焊接鑄造工程師"
                   width={400}
                   height={400}
-                  layout="responsive"
-                  objectFit="cover"
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                 />
               </div>
             </Link>

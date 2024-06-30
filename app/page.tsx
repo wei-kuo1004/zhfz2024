@@ -20,8 +20,7 @@ export default function IndexPage() {
             alt="描述文字"
             width={800}
             height={600}
-            layout="responsive"
-            objectFit="cover"
+            style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
           />
         </Link> 
       </div>

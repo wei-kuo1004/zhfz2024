@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // 禁用Next.js图片优化，以支持静态导出
   },
-  basePath: '/zhfz2024',
-  assetPrefix: '/zhfz2024/',
+  basePath: process.env.NODE_ENV === 'production' ? '/zhfz2024' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/zhfz2024/' : '',
 };
 
 export default nextConfig;
