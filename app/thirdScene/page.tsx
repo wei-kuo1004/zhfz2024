@@ -160,16 +160,16 @@ export default function ThirdPage() {
             className="flex w-full cursor-pointer justify-center" 
             onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
           >
-            <div className="relative aspect-[10/2.5] w-full">
-            <Image 
-              src={option.src} 
-              alt={`選項 ${String.fromCharCode(65 + index)}`} 
-              fill
-              style={{ objectFit: 'cover' }}
-              className={`transition-transform duration-200 hover:scale-105 ${showFeedback ? 'opacity-50' : ''}`}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-            </div>
+         <div className="relative aspect-[10/2.5] w-full">
+          <Image 
+            src={option.src} 
+            alt={`選項 ${String.fromCharCode(65 + index)}`} 
+            fill
+            style={{ objectFit: 'cover' }}
+            className={``}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
           </div>
         ))}
       </div>

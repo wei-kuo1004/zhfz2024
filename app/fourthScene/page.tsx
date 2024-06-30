@@ -7,7 +7,7 @@ import React from 'react';
 // 假設這是一個頁面組件
 const FourthPage = () => {
   return (
-    <div>
+    <div >
       <h1>完成測驗</h1>
       <div className="flex gap-4">
         <Link
