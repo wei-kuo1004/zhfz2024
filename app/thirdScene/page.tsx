@@ -4,11 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import LoadingDots from '@/components/loadingDot';
 import Head from 'next/head';
 import OptionsList from '@/components/optionsList';
-
-
 
 export default function ThirdPage() {
   const { selectedCharacter, currentLevel, setCurrentLevel, setAnswer } = useCharacter();
@@ -21,14 +18,13 @@ export default function ThirdPage() {
     correctImage: string,
     wrongImage: string,
   } | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (currentLevel > 3) {
       setCurrentLevel(1);
       router.push("/fourthScene");
     }
-  }, [currentLevel, router]);
+  }, [currentLevel, router, setCurrentLevel]);
 
   useEffect(() => {
     const characterData = renderData();
@@ -37,97 +33,78 @@ export default function ThirdPage() {
     }
   }, [selectedCharacter, currentLevel]);
 
-  useEffect(() => {
-    if (data) {
-      const imagesToPreload = [
-        data.bg,
-        ...data.options.map(option => option.src),
-        data.correctImage,
-        data.wrongImage
-      ];
-
-      Promise.all(imagesToPreload.map(src => {
-        return new Promise((resolve) => {
-          const img = new window.Image();
-          img.src = src;
-          img.onload = resolve;
-        });
-      })).then(() => setIsLoading(false));
-    }
-  }, [data]);
-
   const images = {
     character1: {
       bg: [
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-bg.webp",
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-bg.webp",
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-bg.webp",
+        "images/PRD/C1/C1-Q1-bg.webp",
+        "images/PRD/C1/C1-Q2-bg.webp",
+        "images/PRD/C1/C1-Q3-bg.webp",
       ],
       options: [
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-B.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-C.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-D.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-B.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-C.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-D.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-A.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-B.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-C.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-D.png", correct: false },
+        { src: "images/PRD/C1/C1-Q1-A.png", correct: false },
+        { src: "images/PRD/C1/C1-Q1-B.png", correct: true },
+        { src: "images/PRD/C1/C1-Q1-C.png", correct: false },
+        { src: "images/PRD/C1/C1-Q1-D.png", correct: false },
+        { src: "images/PRD/C1/C1-Q2-A.png", correct: false },
+        { src: "images/PRD/C1/C1-Q2-B.png", correct: false },
+        { src: "images/PRD/C1/C1-Q2-C.png", correct: true },
+        { src: "images/PRD/C1/C1-Q2-D.png", correct: false },
+        { src: "images/PRD/C1/C1-Q3-A.png", correct: true },
+        { src: "images/PRD/C1/C1-Q3-B.png", correct: false },
+        { src: "images/PRD/C1/C1-Q3-C.png", correct: false },
+        { src: "images/PRD/C1/C1-Q3-D.png", correct: false },
       ],
-      correctImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-o.webp",
-      wrongImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-x.webp",
+      correctImage: "images/PRD/C1/C1-o.webp",
+      wrongImage: "images/PRD/C1/C1-x.webp",
     },
     character2: {
       bg: [
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-bg.webp",
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-bg.webp",
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-bg.webp",
+        "images/PRD/C2/C2-Q1-bg.webp",
+        "images/PRD/C2/C2-Q2-bg.webp",
+        "images/PRD/C2/C2-Q3-bg.webp",
       ],
       options: [
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-B.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-C.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-D.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-B.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-C.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-D.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-B.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-C.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-D.png", correct: false },
+        { src: "images/PRD/C2/C2-Q1-A.png", correct: false },
+        { src: "images/PRD/C2/C2-Q1-B.png", correct: false },
+        { src: "images/PRD/C2/C2-Q1-C.png", correct: true },
+        { src: "images/PRD/C2/C2-Q1-D.png", correct: false },
+        { src: "images/PRD/C2/C2-Q2-A.png", correct: false },
+        { src: "images/PRD/C2/C2-Q2-B.png", correct: true },
+        { src: "images/PRD/C2/C2-Q2-C.png", correct: false },
+        { src: "images/PRD/C2/C2-Q2-D.png", correct: false },
+        { src: "images/PRD/C2/C2-Q3-A.png", correct: false },
+        { src: "images/PRD/C2/C2-Q3-B.png", correct: false },
+        { src: "images/PRD/C2/C2-Q3-C.png", correct: true },
+        { src: "images/PRD/C2/C2-Q3-D.png", correct: false },
       ],
-      correctImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-o.webp",
-      wrongImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-x.webp",
+      correctImage: "images/PRD/C2/C2-o.webp",
+      wrongImage: "images/PRD/C2/C2-x.webp",
     },
     character3: {
       bg: [
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-bg.webp",
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-bg.webp",
-        "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-bg.webp",
+        "images/PRD/C3/C3-Q1-bg.webp",
+        "images/PRD/C3/C3-Q2-bg.webp",
+        "images/PRD/C3/C3-Q3-bg.webp",
       ],
       options: [
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-B.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-C.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-D.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-B.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-C.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-D.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-A.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-B.png", correct: true },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-C.png", correct: false },
-        { src: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-D.png", correct: false },
+        { src: "images/PRD/C3/C3-Q1-A.png", correct: false },
+        { src: "images/PRD/C3/C3-Q1-B.png", correct: true },
+        { src: "images/PRD/C3/C3-Q1-C.png", correct: false },
+        { src: "images/PRD/C3/C3-Q1-D.png", correct: false },
+        { src: "images/PRD/C3/C3-Q2-A.png", correct: false },
+        { src: "images/PRD/C3/C3-Q2-B.png", correct: true },
+        { src: "images/PRD/C3/C3-Q2-C.png", correct: false },
+        { src: "images/PRD/C3/C3-Q2-D.png", correct: false },
+        { src: "images/PRD/C3/C3-Q3-A.png", correct: false },
+        { src: "images/PRD/C3/C3-Q3-B.png", correct: true },
+        { src: "images/PRD/C3/C3-Q3-C.png", correct: false },
+        { src: "images/PRD/C3/C3-Q3-D.png", correct: false },
       ],
-      correctImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-o.webp",
-      wrongImage: "https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-x.webp",
+      correctImage: "images/PRD/C3/C3-o.webp",
+      wrongImage: "images/PRD/C3/C3-x.webp",
     },
   };
-  
+
   const renderData = () => {
     const character = images[selectedCharacter as keyof typeof images];
     const level = (currentLevel || 1) - 1;
@@ -155,85 +132,29 @@ export default function ThirdPage() {
     }, 2000);
   };
 
-  if (isLoading || !data) return <LoadingDots />;
+  if (!data) return null;
 
   return (
     <>
       <Head>
-        {/* <!-- Preload links for character1 --> */}
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q1-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q2-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-Q3-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-o.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-x.webp" as="image" />
-
-    {/* <!-- Preload links for character2 --> */}
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q1-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q2-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-Q3-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-o.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-x.webp" as="image" />
-
-    {/* <!-- Preload links for character3 --> */}
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-bg.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q1-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q2-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-A.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-B.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-C.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-Q3-D.png" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-o.webp" as="image" />
-    <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-x.webp" as="image" />
-
-    </Head>
-    <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
+        <title>Third Page</title>
+      </Head>
+      <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
         {showFeedback && (
           <motion.div 
-          className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
-          initial={{ scale: 0.5 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
-        >
-          <Image 
-            src={feedbackImage} 
-            alt="答題反饋" 
-            width={300} 
-            height={300} 
-            style={{ width: 'auto', height: 'auto' }}
-          />
-        </motion.div>
+            className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
+            initial={{ scale: 0.5 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
+          >
+            <Image 
+              src={feedbackImage} 
+              alt="答題反饋" 
+              width={300} 
+              height={300} 
+              style={{ width: 'auto', height: 'auto' }}
+            />
+          </motion.div>
         )}
         <OptionsList
           data={data}
@@ -241,6 +162,6 @@ export default function ThirdPage() {
           handleClick={handleClick}
         />
       </div>
-      </>
+    </>
   );
 }
