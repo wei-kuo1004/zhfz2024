@@ -9,7 +9,7 @@ const SecondPage: React.FC = () => {
 
   return (
       <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center  p-6">
-        <div className="w-1/2" style={{ backgroundImage: `url(/images/PRD/p2-bg.jpg)` }}>
+        <div className="w-1/2" style={{ backgroundImage: `url(images/PRD/p2-bg.png)` }}>
           <Link href="/thirdScene" passHref>
             <div onClick={() => setSelectedCharacter('character1')}>
               <Image
