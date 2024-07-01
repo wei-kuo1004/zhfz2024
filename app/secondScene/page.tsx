@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useCharacter } from '@/store/character-store';
 import LoadingDots from '@/components/loadingDot';
-
+import Head from 'next/head';
 
 const SecondPage: React.FC = () => {
   const { setSelectedCharacter } = useCharacter();
@@ -32,6 +32,27 @@ const SecondPage: React.FC = () => {
   }
 
   return (
+    <>
+    <Head>
+        {/* 預加載背景圖片 */}
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-bg.png"
+          as="image" />
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character1.png"
+          as="image" />
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character2.png"
+          as="image" />
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p2-character3.png"
+          as="image" />
+    </Head>
+  
       <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p2-bg bg-cover p-6">
         <div className="w-1/2">
           <Link href="/thirdScene" passHref>
@@ -77,6 +98,7 @@ const SecondPage: React.FC = () => {
           </div>
         </div>
       </div>
+      </>
   );
 };
 

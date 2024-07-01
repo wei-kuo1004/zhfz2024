@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import LoadingDots from '@/components/loadingDot';
+import Head from 'next/head';
 
 
 const backgrounds: Record<'character1' | 'character2' | 'character3', string> = {
@@ -34,6 +35,22 @@ const FourthPage = () => {
   if (isLoading) return <LoadingDots />;
 
   return (
+    <>
+    <Head>
+        {/* 預加載背景圖片 */}
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C1/C1-F-bg.webp"
+          as="image" />
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C2/C2-F-bg.webp"
+          as="image" />
+        <link
+          rel="preload"
+          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-F-bg.webp"
+          as="image" />
+    </Head>
       <div
         className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg bg-cover p-6"
         style={{ backgroundImage: `url(${backgroundUrl})`, backgroundSize: 'cover' }}
@@ -51,6 +68,7 @@ const FourthPage = () => {
           </Link>
         </div>
       </div>
+      </>
   );
 };
 
