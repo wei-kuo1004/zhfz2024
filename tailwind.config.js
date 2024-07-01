@@ -16,10 +16,6 @@ module.exports = {
       },
     },
     extend: {
-      backgroundImage: {
-        'p1-bg': "url('/images/PRD/p1-bg.jpg')",
-        'p2-bg': "url('/images/PRD/p2-bg.jpg')",
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

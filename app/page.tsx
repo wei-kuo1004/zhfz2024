@@ -40,7 +40,7 @@ export default function IndexPage() {
     //       as="image"
     //     />
     //   </Head>
-      <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg bg-cover p-6">
+      <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center  p-6" style={{ backgroundImage: `url(/images/PRD/p1-bg.jpg)` }}>
         <div className="w-full flex-1 p-8">
           {/* 你的內容 */}
         </div>
