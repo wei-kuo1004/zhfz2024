@@ -3,12 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import ClickCounter from "@/components/clickCount";
 import { useEffect, useState } from "react";
-import LoadingDots from "@/components/loadingDot";
 import Head from 'next/head';
 
 export default function IndexPage() {
   const [clickCount, setClickCount] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // 初始加載 clickCount
@@ -16,14 +14,6 @@ export default function IndexPage() {
     if (savedCount) {
       setClickCount(parseInt(savedCount, 10));
     }
-
-    const images = [
-      "https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png",
-      "https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png",
-    ];
-
-    // 加載圖片並更新 isLoading 狀態
-    Promise.all(images.map(loadImage)).then(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -31,22 +21,9 @@ export default function IndexPage() {
     localStorage.setItem("clickCount", clickCount.toString());
   }, [clickCount]);
 
-  const loadImage = (src: string) => {
-    return new Promise<void>((resolve, reject) => {
-      const img = new window.Image();
-      img.src = src;
-      img.onload = () => resolve();
-      img.onerror = () => reject();
-    });
-  };
-
   const handleStartClick = () => {
     setClickCount((prevCount) => prevCount + 1);
   };
-
-  if (isLoading) {
-    return <LoadingDots />;
-  }
 
   return (
     <>
