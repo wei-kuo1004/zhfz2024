@@ -26,20 +26,20 @@ export default function IndexPage() {
   };
 
   return (
-    <>
-      <Head>
-        {/* 預加載背景圖片 */}
-        <link
-          rel="preload"
-          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
-          as="image"
-        />
-      </Head>
+    // <>
+    //   <Head>
+    //     {/* 預加載背景圖片 */}
+    //     <link
+    //       rel="preload"
+    //       href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-bg.png"
+    //       as="image"
+    //     />
+    //     <link
+    //       rel="preload"
+    //       href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
+    //       as="image"
+    //     />
+    //   </Head>
       <div className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg bg-cover p-6">
         <div className="w-full flex-1 p-8">
           {/* 你的內容 */}
@@ -50,7 +50,7 @@ export default function IndexPage() {
         <div className="w-full flex-1 p-8">
           <Link href="/secondScene" passHref onClick={handleStartClick}>
             <Image
-              src="https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png"
+              src="images/PRD/p1-start.png"
               alt="描述文字"
               width={800}
               height={600}
@@ -62,6 +62,6 @@ export default function IndexPage() {
         {/* 顯示本日日期及遊玩人次 */}
         <ClickCounter clickCount={clickCount} />
       </div>
-    </>
+    //</>
   );
 }
