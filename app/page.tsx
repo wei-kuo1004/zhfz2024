@@ -11,7 +11,7 @@ export default function IndexPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-     // 每次 clickCount 改變時更新 localStorage
+    // 初始加載 clickCount
     const savedCount = localStorage.getItem("clickCount");
     if (savedCount) {
       setClickCount(parseInt(savedCount, 10));
@@ -22,10 +22,12 @@ export default function IndexPage() {
       "https://wei-kuo1004.github.io/zhfz2024/images/PRD/p1-start.png",
     ];
 
+    // 加載圖片並更新 isLoading 狀態
     Promise.all(images.map(loadImage)).then(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
+    // 每次 clickCount 改變時更新 localStorage
     localStorage.setItem("clickCount", clickCount.toString());
   }, [clickCount]);
 
@@ -47,9 +49,8 @@ export default function IndexPage() {
   }
 
   return (
-
     <>
-    <Head>
+      <Head>
         {/* 預加載背景圖片 */}
         <link
           rel="preload"
@@ -84,6 +85,6 @@ export default function IndexPage() {
         {/* 顯示本日日期及遊玩人次 */}
         <ClickCounter clickCount={clickCount} />
       </div>
-      </>
+    </>
   );
 }
