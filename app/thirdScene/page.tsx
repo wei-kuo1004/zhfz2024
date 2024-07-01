@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import LoadingDots from '@/components/loadingDot';
 import Head from 'next/head';
+import OptionsList from '@/components/optionsList';
 
 
 
@@ -217,42 +218,28 @@ export default function ThirdPage() {
     <link rel="preload" href="https://wei-kuo1004.github.io/zhfz2024/images/PRD/C3/C3-x.webp" as="image" />
 
     </Head>
-      <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
+    <div className="container relative mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-end bg-cover p-2" style={{ backgroundImage: `url(${data.bg})` }}>
         {showFeedback && (
           <motion.div 
-            className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 500 }}
-          >
-            <Image 
-              src={feedbackImage} 
-              alt="答題反饋" 
-              width={300} 
-              height={300} 
-              style={{ width: 'auto', height: 'auto' }}
-            />
-          </motion.div>
+          className="absolute inset-0 z-50 flex items-center justify-center bg-black/50"
+          initial={{ scale: 0.5 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
+        >
+          <Image 
+            src={feedbackImage} 
+            alt="答題反饋" 
+            width={300} 
+            height={300} 
+            style={{ width: 'auto', height: 'auto' }}
+          />
+        </motion.div>
         )}
-        <div className={`mb-8 flex w-full max-w-2xl flex-col space-y-1`}>
-          {data.options.map((option, index) => (
-            <div 
-              key={index} 
-              className="flex w-full cursor-pointer justify-center" 
-              onClick={() => !showFeedback && handleClick(String.fromCharCode(65 + index), option.correct)}
-            >
-              <div className="relative aspect-[10/2.5] w-full">
-                <Image 
-                  src={option.src} 
-                  alt={`選項 ${String.fromCharCode(65 + index)}`} 
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+        <OptionsList
+          data={data}
+          showFeedback={showFeedback}
+          handleClick={handleClick}
+        />
       </div>
       </>
   );
