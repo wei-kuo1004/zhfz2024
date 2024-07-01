@@ -29,7 +29,7 @@ const FourthPage = () => {
         <title>Fourth Page</title>
       </Head>
       <div
-        className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center bg-p1-bg bg-cover p-6"
+        className="container mx-auto flex aspect-[1/1.8] min-h-screen flex-col items-center justify-center  bg-cover p-6"
         style={{ backgroundImage: `url(${backgroundUrl})`, backgroundSize: 'cover' }}
       >
         <div className="grow"></div> {/* 占位符，讓按鈕在底部 */}
