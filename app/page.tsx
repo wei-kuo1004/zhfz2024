@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 import ClickCounter from "@/components/clickCount";
 import { useEffect, useState } from "react";
 import LoadingDots from "@/components/loadingDot";

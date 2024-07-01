@@ -3,7 +3,6 @@ import { useCharacter } from '@/store/character-store';
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
 import LoadingDots from '@/components/loadingDot';
 
 
