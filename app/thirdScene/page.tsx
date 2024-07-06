@@ -36,9 +36,9 @@ export default function ThirdPage() {
   const images = {
     character1: {
       bg: [
-        "images/PRD/C1/C1-Q1-bg.webp",
-        "images/PRD/C1/C1-Q2-bg.webp",
-        "images/PRD/C1/C1-Q3-bg.webp",
+        "images/PRD/C1/C1-Q1-bg.png",
+        "images/PRD/C1/C1-Q2-bg.png",
+        "images/PRD/C1/C1-Q3-bg.png",
       ],
       options: [
         { src: "images/PRD/C1/C1-Q1-A.png", correct: false },
