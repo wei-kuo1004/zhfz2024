@@ -59,9 +59,9 @@ export default function ThirdPage() {
     },
     character2: {
       bg: [
-        "images/PRD/C2/C2-Q1-bg.webp",
-        "images/PRD/C2/C2-Q2-bg.webp",
-        "images/PRD/C2/C2-Q3-bg.webp",
+        "images/PRD/C2/C2-Q1-bg.png",
+        "images/PRD/C2/C2-Q2-bg.png",
+        "images/PRD/C2/C2-Q3-bg.png",
       ],
       options: [
         { src: "images/PRD/C2/C2-Q1-A.png", correct: false },
@@ -82,9 +82,9 @@ export default function ThirdPage() {
     },
     character3: {
       bg: [
-        "images/PRD/C3/C3-Q1-bg.webp",
-        "images/PRD/C3/C3-Q2-bg.webp",
-        "images/PRD/C3/C3-Q3-bg.webp",
+        "images/PRD/C3/C3-Q1-bg.png",
+        "images/PRD/C3/C3-Q2-bg.png",
+        "images/PRD/C3/C3-Q3-bg.png",
       ],
       options: [
         { src: "images/PRD/C3/C3-Q1-A.png", correct: false },

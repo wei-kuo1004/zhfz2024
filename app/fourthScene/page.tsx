@@ -6,9 +6,9 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 const backgrounds: Record<'character1' | 'character2' | 'character3', string> = {
-  character1: 'images/PRD/C1/C1-F-bg.webp',
-  character2: 'images/PRD/C2/C2-F-bg.webp',
-  character3: 'images/PRD/C3/C3-F-bg.webp',
+  character1: 'images/PRD/C1/C1-F-bg.png',
+  character2: 'images/PRD/C2/C2-F-bg.png',
+  character3: 'images/PRD/C3/C3-F-bg.png',
 };
 
 const FourthPage = () => {
