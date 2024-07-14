@@ -4,7 +4,7 @@ import Image from "next/image";
 import ClickCounter from "@/components/clickCount";
 import { useEffect, useState } from "react";
 import Head from 'next/head';
-
+//目前還使只能掛在網路上
 export default function IndexPage() {
   const [clickCount, setClickCount] = useState(0);
 
