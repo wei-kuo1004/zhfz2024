@@ -33,7 +33,7 @@ const FourthPage = () => {
         style={{ backgroundImage: `url(${backgroundUrl})`, backgroundSize: 'cover' }}
       >
         <div className="grow"></div> {/* 占位符，讓按鈕在底部 */}
-        <div className="flex items-end justify-center gap-4 pb-4">
+        <div className="flex items-end justify-center gap-4 pt-24 px-10">
           <Link href="/">
             <Image
               src="images/PRD/back.png"
